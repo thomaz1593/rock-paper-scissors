@@ -1,20 +1,22 @@
 let playerScore = 0;
 let computerScore = 0;
 
-function game() {
-    // for (let i = 0; i < 5; i++) {
-    //     let player = playerSelection();
-    //     let computer = computerPlay();
-    //     playRound(player, computer);
-    //     console.log(`GAME ${i + 1} - Player Score: ${playerScore} vs. Computer Score: ${computerScore}`);
-    // }
-    if (playerScore > computerScore) {
-        console.log("PLAYER WON THE GAME!");
-    } else if (computerScore > playerScore) {
-        console.log("COMPUTER WON THE GAME!");
-    } else {
-        console.log("IT'S A DRAW!");
+// function playerSelection(play) {
+//     play = prompt("Rock, Paper or Scissors?");
+//     let playerSign = play.toLowerCase();
+//     return playerSign;
+// }
+
+function computerPlay() {
+    let computerSign = Math.floor(Math.random() * 3 + 1);
+    if (computerSign === 1) {
+        computerSign = "rock";
+    } else if (computerSign === 2) {
+        computerSign = "paper";
+    } else if (computerSign === 3) {
+        computerSign = "scissors";
     }
+    return computerSign;
 }
 
 function playRound(playerChoice, computerChoice) {
@@ -39,39 +41,29 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-function playerSelection(play) {
-    // play = prompt("Rock, Paper or Scissors?");
-    let playerSign = play.toLowerCase();
-    return playerSign;
-}
-
-function computerPlay() {
-    let computerSign = Math.floor(Math.random() * 3 + 1);
-    if (computerSign === 1) {
-        computerSign = "rock";
-    } else if (computerSign === 2) {
-        computerSign = "paper";
-    } else if (computerSign === 3) {
-        computerSign = "scissors";
-    }
-    return computerSign;
-}
-
-game();
-
-// const btnRock = document.querySelector('.rock');
-// btnRock.addEventListener('click', function(e) {
-//     let valRock = this.value;
-//     // playRound(valRock);
-//     // playerSelection(valRock);
-//     console.log(valRock);
-// });
-
-const btnsChoice = document.querySelectorAll('button');
-btnsChoice.forEach((button => {
+const btnChoice = document.querySelectorAll('button');
+btnChoice.forEach((button => {
     button.addEventListener('click', function(e){
         let valButton = this.value;
         console.log(valButton);
         return valButton;
     })
-}))
+}));
+
+function game() {
+    // for (let i = 0; i < 5; i++) {
+        // let player = playerSelection();
+        // let computer = computerPlay();
+        // playRound(player, computer);
+        // console.log(`GAME ${i + 1} - Player Score: ${playerScore} vs. Computer Score: ${computerScore}`);
+    // }
+    if (playerScore > computerScore) {
+        console.log("PLAYER WON THE GAME!");
+    } else if (computerScore > playerScore) {
+        console.log("COMPUTER WON THE GAME!");
+    } else {
+        console.log("IT'S A DRAW!");
+    }
+}
+
+game();
